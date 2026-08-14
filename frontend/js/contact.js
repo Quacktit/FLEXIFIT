@@ -26,7 +26,7 @@ document.addEventListener('DOMContentLoaded', function () {
     btn.disabled = true;
     btn.textContent = 'Sending...';
 
-    fetch('/api/contact', {
+    fetch('https://flexifit-tnrc.onrender.com/api/contact', {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify(payload)
