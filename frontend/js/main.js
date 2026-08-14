@@ -1,4 +1,4 @@
-// FLEXIFIT — shared site behaviour, loaded on every page
+// FLEXIFIT —shared site behaviour, loaded on every page
 
 document.addEventListener('DOMContentLoaded', function () {
 
