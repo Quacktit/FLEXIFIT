@@ -1,4 +1,4 @@
-// FLEXIFIT — contact form submission
+// FLEXIFIT —contact form submission
 
 document.addEventListener('DOMContentLoaded', function () {
   var form = document.getElementById('contact-form');
