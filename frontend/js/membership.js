@@ -41,7 +41,7 @@ document.addEventListener('DOMContentLoaded', function () {
     btn.disabled = true;
     btn.textContent = 'Submitting...';
 
-    fetch('/api/membership', {
+    fetch('https://flexifit-tnrc.onrender.com/api/membership', {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify(payload)
