@@ -1,4 +1,4 @@
-# Ignore the Python virtual environment
+#Ignore the Python virtual environment
 venv/
 __pycache__/
 
