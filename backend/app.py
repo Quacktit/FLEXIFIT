@@ -258,43 +258,93 @@ ADMIN_TEMPLATE = """
 <title>FLEXIFIT — Admin Dashboard</title>
 <style>
   body{ font-family:'JetBrains Mono', monospace; background:#0B0B0C; color:#F3F0E7; margin:0; padding:40px; }
-  h1{ color:#F5C400; font-size:22px; }
-  h2{ color:#F5C400; font-size:16px; margin-top:40px; border-bottom:1px solid #333; padding-bottom:10px;}
+  h1{ color:#F5C400; font-size:22px; display:inline-block; }
+  .topbar{ display:flex; justify-content:space-between; align-items:baseline; flex-wrap:wrap; gap:12px; }
+  .logout{ color:#F5C400; font-size:12px; text-decoration:underline; text-transform:uppercase; letter-spacing:1px; }
+  h2{ color:#F5C400; font-size:16px; margin-top:40px; border-bottom:1px solid #333; padding-bottom:10px; display:flex; justify-content:space-between; align-items:baseline;}
   table{ width:100%; border-collapse:collapse; margin-top:16px; font-size:13px; }
-  th,td{ border:1px solid #333; padding:10px; text-align:left; vertical-align:top; }
+  th,td{ border:1px solid #333; padding:10px; text-align:left; vertical-align:top; white-space:nowrap; }
+  td.wrap{ white-space:normal; }
   th{ background:#19191B; color:#F5C400; text-transform:uppercase; letter-spacing:1px; font-size:11px;}
   tr:hover{ background:#19191B; }
   .empty{ color:#888; padding:20px 0; }
+  .live{ font-size:11px; color:#888; display:flex; align-items:center; gap:6px; }
+  .dot{ width:7px; height:7px; border-radius:50%; background:#F5C400; animation:pulse 1.5s ease-in-out infinite; }
+  @keyframes pulse{ 0%,100%{opacity:1;} 50%{opacity:.25;} }
 </style></head><body>
-<h1>FLEXIFIT — Admin Dashboard</h1>
-<p style="color:#999;">Newest submissions first. Refresh to see new leads. This page is Basic-Auth protected — do not expose it publicly without changing FLEXIFIT_ADMIN_PASSWORD.</p>
 
-<h2>Membership Applications ({{ memberships|length }})</h2>
-{% if memberships %}
-<table>
-<tr><th>Date</th><th>Name</th><th>Phone</th><th>Email</th><th>Plan</th><th>Goal</th><th>Start</th><th>Notes</th></tr>
+<div class="topbar">
+  <h1>FLEXIFIT — Admin Dashboard</h1>
+  <a class="logout" href="/admin/logout">Log out</a>
+</div>
+<p style="color:#999;">Updates automatically — no need to refresh. This page is Basic-Auth protected — do not expose it publicly without changing FLEXIFIT_ADMIN_PASSWORD.</p>
+<p class="live"><span class="dot"></span><span id="live-status">Live — updated just now</span></p>
+
+<h2><span>Membership Applications (<span id="m-count">{{ memberships|length }}</span>)</span></h2>
+<table id="m-table" style="display:{{ 'table' if memberships else 'none' }};">
+<tr><th>Date</th><th>Time</th><th>Name</th><th>Phone</th><th>Email</th><th>Plan</th><th>Goal</th><th>Start</th><th>Notes</th></tr>
+<tbody id="m-body">
 {% for m in memberships %}
 <tr>
-  <td>{{ m['created_at'] }}</td><td>{{ m['name'] }}</td><td>{{ m['phone'] }}</td>
+  <td>{{ m['date'] }}</td><td>{{ m['time'] }}</td><td>{{ m['name'] }}</td><td>{{ m['phone'] }}</td>
   <td>{{ m['email'] }}</td><td>{{ m['plan'] }}</td><td>{{ m['goal'] }}</td>
-  <td>{{ m['start_date'] }}</td><td>{{ m['notes'] }}</td>
+  <td>{{ m['start_date'] }}</td><td class="wrap">{{ m['notes'] }}</td>
 </tr>
 {% endfor %}
+</tbody>
 </table>
-{% else %}<p class="empty">No membership applications yet.</p>{% endif %}
+<p class="empty" id="m-empty" style="display:{{ 'none' if memberships else 'block' }};">No membership applications yet.</p>
 
-<h2>Contact Inquiries ({{ inquiries|length }})</h2>
-{% if inquiries %}
-<table>
-<tr><th>Date</th><th>Name</th><th>Phone</th><th>Email</th><th>Subject</th><th>Message</th></tr>
+<h2><span>Contact Inquiries (<span id="c-count">{{ inquiries|length }}</span>)</span></h2>
+<table id="c-table" style="display:{{ 'table' if inquiries else 'none' }};">
+<tr><th>Date</th><th>Time</th><th>Name</th><th>Phone</th><th>Email</th><th>Subject</th><th>Message</th></tr>
+<tbody id="c-body">
 {% for c in inquiries %}
 <tr>
-  <td>{{ c['created_at'] }}</td><td>{{ c['name'] }}</td><td>{{ c['phone'] }}</td>
-  <td>{{ c['email'] }}</td><td>{{ c['subject'] }}</td><td>{{ c['message'] }}</td>
+  <td>{{ c['date'] }}</td><td>{{ c['time'] }}</td><td>{{ c['name'] }}</td><td>{{ c['phone'] }}</td>
+  <td>{{ c['email'] }}</td><td>{{ c['subject'] }}</td><td class="wrap">{{ c['message'] }}</td>
 </tr>
 {% endfor %}
+</tbody>
 </table>
-{% else %}<p class="empty">No contact inquiries yet.</p>{% endif %}
+<p class="empty" id="c-empty" style="display:{{ 'none' if inquiries else 'block' }};">No contact inquiries yet.</p>
+
+<script>
+function cell(text) {
+  var td = document.createElement('td');
+  td.textContent = text || '';
+  return td;
+}
+function renderTable(tbodyId, tableId, emptyId, rows, columns) {
+  var tbody = document.getElementById(tbodyId);
+  tbody.innerHTML = '';
+  rows.forEach(function (row) {
+    var tr = document.createElement('tr');
+    columns.forEach(function (key) { tr.appendChild(cell(row[key])); });
+    tbody.appendChild(tr);
+  });
+  document.getElementById(tableId).style.display = rows.length ? 'table' : 'none';
+  document.getElementById(emptyId).style.display = rows.length ? 'none' : 'block';
+}
+function refreshDashboard() {
+  fetch('/api/admin/data')
+    .then(function (res) { return res.json(); })
+    .then(function (data) {
+      renderTable('m-body', 'm-table', 'm-empty', data.memberships,
+        ['date','time','name','phone','email','plan','goal','start_date','notes']);
+      renderTable('c-body', 'c-table', 'c-empty', data.inquiries,
+        ['date','time','name','phone','email','subject','message']);
+      document.getElementById('m-count').textContent = data.memberships.length;
+      document.getElementById('c-count').textContent = data.inquiries.length;
+      document.getElementById('live-status').textContent =
+        'Live — updated ' + new Date().toLocaleTimeString();
+    })
+    .catch(function () {
+      document.getElementById('live-status').textContent = 'Live — connection lost, retrying...';
+    });
+}
+setInterval(refreshDashboard, 8000);
+</script>
 
 </body></html>
 """
