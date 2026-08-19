@@ -305,7 +305,6 @@ ADMIN_TEMPLATE = """
   <h1>FLEXIFIT — Admin Dashboard</h1>
   <a class="logout" href="/admin/logout">Log out</a>
 </div>
-<p style="color:#999;">Updates automatically — no need to refresh.</p>
 <p class="live"><span class="dot"></span><span id="live-status">Live — updated just now</span></p>
 
 <h2><span>Membership Applications (<span id="m-count">{{ memberships|length }}</span>)</span></h2>
