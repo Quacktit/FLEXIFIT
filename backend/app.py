@@ -1,29 +1,8 @@
 """
 FLEXIFIT backend
 =================
-Serves the static multipage frontend and exposes a small JSON API that
-stores contact inquiries and membership applications in a SQLite database.
-
-Every new submission also triggers a "notification":
-  - it is always printed to the server console and logged to notifications.log
-  - if SMTP environment variables are configured, an email is also sent
-    to the gym's staff inbox
-An in-app dashboard at /admin (password protected) lists every inquiry
-and membership application in real time, so the gym doesn't depend on
-email being configured to see new leads.
-
-Run with:
-    pip install -r requirements.txt
-    python app.py
-Then open http://localhost:5000
+...
 """
-
-from flask import Flask
-from flask_cors import CORS  # Import this
-
-app = Flask(__name__, static_folder=None)
-CORS(app)  # Put it right here instead!
-
 
 import os
 import re
@@ -38,11 +17,10 @@ from flask import (
     Flask, request, jsonify, g, send_from_directory,
     render_template_string, Response
 )
+from flask_cors import CORS
 
 # ---------------------------------------------------------------------------
-# Configuration — override any of these with real values via environment
-# variables before deploying. Nothing here is required for local testing;
-# the site works fully without SMTP configured, it just skips real email.
+# Configuration
 # ---------------------------------------------------------------------------
 BASE_DIR = os.path.dirname(os.path.abspath(__file__))
 FRONTEND_DIR = os.path.join(os.path.dirname(BASE_DIR), "frontend")
@@ -52,7 +30,7 @@ LOG_PATH = os.path.join(BASE_DIR, "notifications.log")
 GYM_NAME = "FLEXIFIT"
 STAFF_NOTIFY_EMAIL = os.environ.get("FLEXIFIT_NOTIFY_EMAIL", "frontdesk@flexifitgym.in")
 
-SMTP_HOST = os.environ.get("FLEXIFIT_SMTP_HOST")        # e.g. smtp.gmail.com
+SMTP_HOST = os.environ.get("FLEXIFIT_SMTP_HOST")
 SMTP_PORT = int(os.environ.get("FLEXIFIT_SMTP_PORT", "587"))
 SMTP_USER = os.environ.get("FLEXIFIT_SMTP_USER")
 SMTP_PASS = os.environ.get("FLEXIFIT_SMTP_PASS")
@@ -67,6 +45,7 @@ logging.basicConfig(
 )
 
 app = Flask(__name__, static_folder=None)
+CORS(app)  # ← only ONE app is ever created now, and it has CORS
 
 EMAIL_RE = re.compile(r"^[^@\s]+@[^@\s]+\.[^@\s]+$")
 
