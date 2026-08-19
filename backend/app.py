@@ -304,13 +304,22 @@ ADMIN_TEMPLATE = """
 @require_admin
 def admin_dashboard():
     db = get_db()
-    memberships = db.execute(
-        "SELECT * FROM membership_applications ORDER BY id DESC"
-    ).fetchall()
-    inquiries = db.execute(
-        "SELECT * FROM contact_inquiries ORDER BY id DESC"
-    ).fetchall()
+    memberships = [membership_to_dict(m) for m in db.execute(
+        "SELECT * FROM membership_applications ORDER BY id DESC").fetchall()]
+    inquiries = [inquiry_to_dict(c) for c in db.execute(
+        "SELECT * FROM contact_inquiries ORDER BY id DESC").fetchall()]
     return render_template_string(ADMIN_TEMPLATE, memberships=memberships, inquiries=inquiries)
+
+
+@app.route("/api/admin/data")
+@require_admin
+def api_admin_data():
+    db = get_db()
+    memberships = [membership_to_dict(m) for m in db.execute(
+        "SELECT * FROM membership_applications ORDER BY id DESC").fetchall()]
+    inquiries = [inquiry_to_dict(c) for c in db.execute(
+        "SELECT * FROM contact_inquiries ORDER BY id DESC").fetchall()]
+    return jsonify({"memberships": memberships, "inquiries": inquiries})
 
 
 # Runs whether the app is started with "python app.py" (local dev)
