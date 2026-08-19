@@ -231,6 +231,27 @@ def require_admin(fn):
         return fn(*args, **kwargs)
     return wrapper
 
+def format_ist(iso_str):
+    """Convert a stored UTC timestamp into separate IST date/time strings."""
+    try:
+        dt_ist = datetime.fromisoformat(iso_str) + timedelta(hours=5, minutes=30)
+    except (TypeError, ValueError):
+        return "-", "-"
+    return dt_ist.strftime("%d %b %Y"), dt_ist.strftime("%I:%M %p")
+
+
+def membership_to_dict(m):
+    date, time = format_ist(m["created_at"])
+    return {"date": date, "time": time, "name": m["name"], "phone": m["phone"],
+            "email": m["email"], "plan": m["plan"], "goal": m["goal"],
+            "start_date": m["start_date"], "notes": m["notes"]}
+
+
+def inquiry_to_dict(c):
+    date, time = format_ist(c["created_at"])
+    return {"date": date, "time": time, "name": c["name"], "phone": c["phone"],
+            "email": c["email"], "subject": c["subject"], "message": c["message"]}
+
 
 ADMIN_TEMPLATE = """
 <!DOCTYPE html><html><head><meta charset="UTF-8">
