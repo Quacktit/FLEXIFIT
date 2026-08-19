@@ -310,6 +310,12 @@ def admin_dashboard():
         "SELECT * FROM contact_inquiries ORDER BY id DESC").fetchall()]
     return render_template_string(ADMIN_TEMPLATE, memberships=memberships, inquiries=inquiries)
 
+@app.route("/admin/logout")
+def admin_logout():
+    return Response(
+        "Logged out. Close this tab, or go back and re-enter the password.", 401,
+        {"WWW-Authenticate": 'Basic realm="FLEXIFIT Admin"'}
+    )
 
 @app.route("/api/admin/data")
 @require_admin
