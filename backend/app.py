@@ -292,8 +292,11 @@ def admin_dashboard():
     return render_template_string(ADMIN_TEMPLATE, memberships=memberships, inquiries=inquiries)
 
 
+# Runs whether the app is started with "python app.py" (local dev)
+# or imported by gunicorn on Render — the database must exist either way.
+init_db()
+
 if __name__ == "__main__":
-    init_db()
     port = int(os.environ.get("PORT", 5000))
     print(f"FLEXIFIT server running — open http://localhost:{port}")
     print(f"Admin dashboard: http://localhost:{port}/admin  (user: admin, password: {ADMIN_PASSWORD})")
