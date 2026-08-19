@@ -21,8 +21,8 @@ Then open http://localhost:5000
 from flask import Flask
 from flask_cors import CORS  # Import this
 
-app = Flask(__name__)
-CORS(app)  # Enable CORS for all routes
+app = Flask(__name__, static_folder=None)
+CORS(app)  # Put it right here instead!
 
 
 import os
