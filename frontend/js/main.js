@@ -5,14 +5,34 @@ document.addEventListener('DOMContentLoaded', function () {
   /* mobile nav toggle */
   var toggle = document.querySelector('.nav-toggle');
   var links = document.querySelector('.nav-links');
+  function closeMobileNav() {
+    if (!links) return;
+    links.classList.remove('open');
+    if (toggle) { toggle.classList.remove('open'); toggle.setAttribute('aria-expanded', 'false'); }
+    document.body.classList.remove('nav-open');
+  }
   if (toggle && links) {
     toggle.addEventListener('click', function () {
-      links.classList.toggle('open');
-      var expanded = links.classList.contains('open');
-      toggle.setAttribute('aria-expanded', expanded ? 'true' : 'false');
+      var opening = !links.classList.contains('open');
+      links.classList.toggle('open', opening);
+      toggle.classList.toggle('open', opening);
+      toggle.setAttribute('aria-expanded', opening ? 'true' : 'false');
+      document.body.classList.toggle('nav-open', opening);
     });
     links.querySelectorAll('a').forEach(function (a) {
-      a.addEventListener('click', function () { links.classList.remove('open'); });
+      a.addEventListener('click', closeMobileNav);
+    });
+    document.addEventListener('keydown', function (e) {
+      if (e.key === 'Escape') closeMobileNav();
+    });
+  }
+
+  var mapWrap = document.querySelector('.map-wrap');
+  if (mapWrap) {
+    mapWrap.addEventListener('click', function () {
+      mapWrap.classList.add('active');
+      var frame = mapWrap.querySelector('.map-frame');
+      if (frame) frame.classList.add('active');
     });
   }
 
