@@ -686,20 +686,34 @@ footer{
 /* --- MOBILE MENU & TABLE OVERRIDES (FLEXIFIT THEME) --- */
 @media (max-width: 768px) {
   
-  /* 1. FREE THE HAMBURGER (Z-INDEX FIX) */
+ /* 1. FREE THE HAMBURGER (Z-INDEX & HIGH VISIBILITY FIX) */
   .site-header {
     position: relative;
-    z-index: 1000 !important; /* Keep the whole header bar on top */
+    z-index: 1000 !important;
   }
   
   .nav-toggle {
     position: relative;
-    z-index: 1001 !important; /* Force hamburger to stay above the menu overlay */
+    z-index: 1001 !important;
+    background: transparent !important;
+    border: 2px solid #F5C400 !important; /* Draws a bright yellow box around it */
+    border-radius: 4px !important;
+    padding: 8px 10px !important; /* Makes it a large touch target */
+    display: flex !important;
+    flex-direction: column !important;
+    justify-content: center !important;
+    gap: 5px !important; /* Spacing between the lines */
+    cursor: pointer;
   }
   
   .nav-toggle span {
-    background-color: #F5C400 !important; /* High-vis yellow */
+    background-color: #F5C400 !important; /* Bright yellow lines */
+    height: 3px !important; /* Thicker, bolder lines */
+    width: 24px !important;
+    display: block !important;
+    transition: all 0.3s ease;
   }
+  
 
   /* 2. THE MENU SCREEN (CLEAN & CENTERED) */
   .nav-links {
