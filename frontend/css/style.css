@@ -683,120 +683,115 @@ footer{
   }
 }
 
-/* --- MOBILE MENU & TABLE OVERRIDES (FLEXIFIT THEME) --- */
+/* ==========================================================================
+   MOBILE OPTIMIZATION & OVERRIDES (MASTER BLOCK)
+   ========================================================================== */
+
+/* --- LOGO PLACEMENT (DESKTOP & MOBILE) --- */
+.header-logo {
+  height: 75px; /* Makes the logo overlap the header */
+  position: absolute;
+  top: 5px; /* Pushes it slightly down from the top edge */
+  z-index: 1002;
+}
+
+.foot-logo {
+  height: 55px;
+  margin-bottom: 15px;
+  display: block;
+}
+
 @media (max-width: 768px) {
   
- /* 1. FREE THE HAMBURGER (Z-INDEX & HIGH VISIBILITY FIX) */
+  /* 1. LAYOUT FOUNDATION (Kill the black void & tighten spacing) */
+  html, body {
+    overflow-x: hidden;
+    width: 100%;
+    position: relative;
+  }
+  section { padding: 40px 15px; }
+  .page-head { padding: 60px 15px 30px; }
+  .grid-2, .grid-3, .grid-4 { grid-template-columns: 1fr; gap: 16px; }
+  .gallery-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; }
+
+  /* Adjust overlapping logo size for smaller screens */
+  .header-logo { height: 60px; top: 8px; }
+
+  /* 2. THE HAMBURGER BUTTON (High Visibility) */
   .site-header {
     position: relative;
     z-index: 1000 !important;
   }
-  
   .nav-toggle {
     position: relative;
-    z-index: 1001 !important;
+    z-index: 1001 !important; /* Forces it above the menu */
     background: transparent !important;
-    border: 2px solid #F5C400 !important; /* Draws a bright yellow box around it */
+    border: 2px solid #F5C400 !important;
     border-radius: 4px !important;
-    padding: 8px 10px !important; /* Makes it a large touch target */
+    padding: 8px 10px !important;
     display: flex !important;
     flex-direction: column !important;
     justify-content: center !important;
-    gap: 5px !important; /* Spacing between the lines */
+    gap: 5px !important;
     cursor: pointer;
   }
-  
   .nav-toggle span {
-    background-color: #F5C400 !important; /* Bright yellow lines */
-    height: 3px !important; /* Thicker, bolder lines */
+    background-color: #F5C400 !important;
+    height: 3px !important;
     width: 24px !important;
     display: block !important;
     transition: all 0.3s ease;
   }
-  
 
-  /* 2. THE MENU SCREEN (CLEAN & CENTERED) */
-  .nav-links {
-    z-index: 999 !important;
-  }
-
+  /* 3. FROSTED GLASS MENU (Fixed Overlay) */
+  .nav-links { z-index: 999 !important; }
   .nav-links.open {
-    /* The Overlay Fix: Locks it to the screen and covers everything */
     position: fixed !important; 
     top: 0 !important;
     left: 0 !important;
     width: 100vw !important;
     height: 100vh !important;
-    overflow-y: auto !important; /* If the menu gets too long, only the menu scrolls */
+    overflow-y: auto !important;
     
-    /* Layout & Alignment */
     display: flex !important;
     flex-direction: column !important;
     align-items: center !important;
     justify-content: flex-start !important;
-    padding-top: 100px !important; /* Gives breathing room below the header */
+    padding-top: 100px !important;
     gap: 0 !important; 
     
-    /* The Visual Upgrade: 96% opacity dark charcoal + Blur effect */
     background-color: rgba(11, 11, 12, 0.96) !important; 
     backdrop-filter: blur(10px) !important; 
-    -webkit-backdrop-filter: blur(10px) !important; /* Crucial for iPhones */
+    -webkit-backdrop-filter: blur(10px) !important; /* iOS support */
   }
-  
-  .nav-links.open li {
-    width: 100%;
-    border-bottom: 1px solid #19191B; 
-  }
-  
+  .nav-links.open li { width: 100%; border-bottom: 1px solid #19191B; }
   .nav-links.open a {
-    font-size: 18px !important; 
-    font-weight: bold;
-    text-transform: uppercase;
-    letter-spacing: 2px;
-    color: #F3F0E7 !important;
-    padding: 20px 0 !important;
-    display: block;
-    text-align: center !important;
+    font-size: 18px !important; font-weight: bold; text-transform: uppercase;
+    letter-spacing: 2px; color: #F3F0E7 !important; padding: 20px 0 !important;
+    display: block; text-align: center !important;
   }
-
-  .nav-links.open a.active, 
-  .nav-links.open a:hover {
-    color: #F5C400 !important;
-  }
-
+  .nav-links.open a.active, .nav-links.open a:hover { color: #F5C400 !important; }
   .nav-links.open .nav-cta-mobile {
-    width: 85% !important;
-    max-width: 300px;
-    margin: 30px auto 0 !important;
-    background-color: #F5C400 !important;
-    color: #000 !important;
-    border: none !important;
-    padding: 15px !important;
+    width: 85% !important; max-width: 300px; margin: 30px auto 0 !important;
+    background-color: #F5C400 !important; color: #000 !important;
+    border: none !important; padding: 15px !important;
   }
 
-  /* 3. SCHEDULE TABLE */
+  /* 4. SHORTER FOOTER (2-Column Grid) */
+  .foot-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 20px;
+  }
+  .foot-grid > div:first-child {
+    grid-column: span 2; /* Brand description stays full width */
+  }
+
+  /* 5. SWIPEABLE SCHEDULE TABLE */
   table {
-    display: block !important;
-    width: 100% !important;
-    overflow-x: auto !important;
-    -webkit-overflow-scrolling: touch;
-    border-collapse: collapse;
-    background-color: #19191B !important;
+    display: block !important; width: 100% !important; overflow-x: auto !important;
+    -webkit-overflow-scrolling: touch; border-collapse: collapse; background-color: #19191B !important;
   }
-  
-  th {
-    background-color: #0B0B0C !important;
-    color: #F5C400 !important;
-    text-transform: uppercase;
-    letter-spacing: 1px;
-    border-bottom: 2px solid #F5C400 !important;
-  }
-  
-  th, td {
-    white-space: nowrap !important;
-    padding: 15px 25px !important;
-    border: 1px solid #333 !important;
-    text-align: center;
-    color: #F3F0E7;
-  }
+  th { background-color: #0B0B0C !important; color: #F5C400 !important; text-transform: uppercase; letter-spacing: 1px; border-bottom: 2px solid #F5C400 !important; }
+  th, td { white-space: nowrap !important; padding: 15px 25px !important; border: 1px solid #333 !important; text-align: center; color: #F3F0E7; }
 }
