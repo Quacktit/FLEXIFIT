@@ -634,3 +634,52 @@ footer{
 
 .reveal{ opacity:0; transform:translateY(18px); transition:opacity .5s ease, transform .5s ease; }
 .reveal.in{ opacity:1; transform:translateY(0); }
+
+/* --- MOBILE OPTIMIZATION OVERRIDES --- */
+@media (max-width: 768px) {
+  
+  /* 1. Kill the right-side black void */
+  html, body {
+    overflow-x: hidden;
+    width: 100%;
+    position: relative;
+  }
+
+  /* 2. Fix the transparent hamburger menu */
+  .nav-links.open {
+    background-color: #0B0B0C; /* Solid dark background */
+    height: 100vh;
+    padding-top: 80px;
+    z-index: 999;
+  }
+
+  /* 3. Condense the giant footer */
+  .foot-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr; /* Two columns instead of one */
+    gap: 20px;
+  }
+  .foot-grid > div:first-child {
+    grid-column: span 2; /* Brand description spans full width */
+  }
+
+  /* 4. Fix grid spacing and Gallery */
+  .grid-2, .grid-3, .grid-4 {
+    grid-template-columns: 1fr; /* Stack standard cards */
+    gap: 16px;
+  }
+  .gallery-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr; /* 2 side-by-side images */
+    gap: 10px;
+  }
+
+  /* 5. Tweak general padding for phone screens */
+  section {
+    padding: 40px 15px;
+  }
+  .page-head {
+    padding: 60px 15px 30px;
+  }
+}
+
