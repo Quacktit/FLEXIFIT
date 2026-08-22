@@ -2,28 +2,91 @@
 <html lang="en">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>FLEXIFIT FITNESS STUDIO</title>
-<meta name="description" content="FLEXIFIT is a private, 800+ sq. ft. personal training studio in Gotri, Vadodara — one-on-one strength, conditioning and boxing coaching. First session is free.">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+<meta name="theme-color" content="#0B0B0C">
+<meta name="robots" content="index, follow">
+<title>Personal Trainer in Vadodara – Private Fitness Studio | FLEXIFIT</title>
+<meta name="description" content="FLEXIFIT is a private personal training studio in Gotri, Vadodara — 1-on-1 fitness coaching, strength training and customized workout programming. First session free.">
+<link rel="canonical" href="https://www.flexifitgym.in/">
+
+<!-- Open Graph / social preview -->
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="FLEXIFIT">
+<meta property="og:title" content="Personal Trainer in Vadodara – Private Fitness Studio | FLEXIFIT">
+<meta property="og:description" content="Private personal training studio in Gotri, Vadodara. 1-on-1 fitness coaching, strength training and customized workout programming. First session free.">
+<meta property="og:image" content="https://www.flexifitgym.in/assets/og-image.jpg">
+<meta property="og:url" content="https://www.flexifitgym.in/">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Personal Trainer in Vadodara – Private Fitness Studio | FLEXIFIT">
+<meta name="twitter:description" content="Private personal training studio in Gotri, Vadodara. First session free.">
+<meta name="twitter:image" content="https://www.flexifitgym.in/assets/og-image.jpg">
+
+<!-- Favicons -->
+<link rel="icon" href="assets/favicon.ico" sizes="any">
+<link rel="icon" type="image/png" sizes="32x32" href="assets/favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="assets/favicon-16x16.png">
+<link rel="apple-touch-icon" sizes="180x180" href="assets/apple-touch-icon.png">
+<link rel="manifest" href="assets/site.webmanifest">
+
+<!-- Fonts: non-blocking load so the page paints before the font request finishes -->
 <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="preload" as="image" href="assets/logo-header.webp" fetchpriority="high">
 <link rel="stylesheet" href="css/style.css">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Anton&family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@500;700&display=swap" media="print" onload="this.media='all'">
+<noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Anton&family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@500;700&display=swap"></noscript>
+
+<!-- Local business structured data -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "ExerciseGym",
+  "name": "FLEXIFIT Fitness Studio",
+  "image": "https://www.flexifitgym.in/assets/logo1.jpg",
+  "url": "https://www.flexifitgym.in/",
+  "telephone": "+91-97278-89123",
+  "email": "hello@flexifitgym.in",
+  "priceRange": "₹₹",
+  "address": {
+    "@type": "PostalAddress",
+    "streetAddress": "FF-21, 22, 23, Kasper Square Complex, Narayan Garden Road, Laxmipura Lake, Gotri",
+    "addressLocality": "Vadodara",
+    "addressRegion": "Gujarat",
+    "addressCountry": "IN"
+  },
+  "openingHoursSpecification": [
+    {
+      "@type": "OpeningHoursSpecification",
+      "dayOfWeek": ["Monday","Tuesday","Wednesday","Thursday","Friday","Saturday"],
+      "opens": "06:00",
+      "closes": "12:00"
+    }
+  ]
+}
+</script>
 </head>
 <body>
 
 <header class="site-header">
   <nav class="nav">
-    <a href="index.html" class="brand">FLEX<span>IFIT</span><small>Vadodara</small></a>
+    <a href="index.html" class="brand">
+      <picture>
+        <source srcset="assets/logo-header.webp 1x, assets/logo-header@2x.webp 2x" type="image/webp">
+        <img class="brand-logo" src="assets/logo-header.png" srcset="assets/logo-header.png 1x, assets/logo-header@2x.png 2x" width="38" height="38" alt="FLEXIFIT logo" fetchpriority="high">
+      </picture>
+      <span class="brand-word">FLEX<span>IFIT</span><small>Vadodara</small></span>
+    </a>
     <ul class="nav-links">
-      <li><a href="index.html" class="active">Home</a></li>
+      <li><a href="index.html" class="active" aria-current="page">Home</a></li>
       <li><a href="about.html">About</a></li>
       <li><a href="programs.html">Programs</a></li>
       <li><a href="trainers.html">Trainers</a></li>
       <li><a href="membership.html">Membership</a></li>
       <li><a href="gallery.html">Gallery</a></li>
       <li><a href="contact.html">Contact</a></li>
-      <li><a href="membership.html" class="nav-cta nav-cta-mobile">Book a Session</a></li>
+      <li><a href="membership.html" class="nav-cta nav-cta-mobile">Join Now</a></li>
     </ul>
-    <a href="membership.html" class="nav-cta">Book a Session</a>
+    <a href="membership.html" class="nav-cta">Join Now</a>
     <button class="nav-toggle" aria-label="Toggle menu" aria-expanded="false">
       <span></span><span></span><span></span>
     </button>
@@ -34,12 +97,12 @@
 
   <section class="hero">
     <div class="hero-inner">
-      <span class="kicker">Private Studio · Gotri, Vadodara</span>
-      <h1>This isn't a gym you join. <em>It's a coach you train with.</em></h1>
-      <p class="lede">FLEXIFIT is an 800+ sq. ft. private personal training studio — every session is one-on-one, programmed around your goals, with a small coaching team that knows your name, your numbers and your next PR. No crowded floor, no waiting for equipment, no generic plans off a wall chart.</p>
+      <span class="kicker">Personal Trainer in Gotri · Vadodara</span>
+      <h1>Vadodara's private personal trainer. <em>Strength built here, not sold.</em></h1>
+      <p class="lede">FLEXIFIT is an exclusive 800+ sq. ft. personal training studio offering 1-on-1 fitness coaching and customized workout programming. A private gym without crowds in Vadodara — no waiting for racks, no gymtimidation, just you and expert coaching.</p>
       <div class="hero-actions">
-        <a href="membership.html" class="btn btn-solid">Book Your Free Session</a>
-        <a href="programs.html" class="btn btn-ghost">See How We Train</a>
+        <a href="membership.html" class="btn btn-solid">Claim Your Free First Session</a>
+        <a href="programs.html" class="btn btn-ghost">See Programs</a>
       </div>
     </div>
   </section>
@@ -47,84 +110,79 @@
   <div class="hazard"></div>
 
   <section class="stat-strip on-charcoal" style="padding:0;">
-    <div class="stat"><span class="num">2-3</span><span class="lbl">Certified Coaches</span></div>
-    <div class="stat"><span class="num">800+</span><span class="lbl">Sq. Ft. Studio</span></div>
-    <div class="stat"><span class="num">1:1</span><span class="lbl">Personal Coaching</span></div>
-    <div class="stat"><span class="num">100%</span><span class="lbl">Custom Programs</span></div>
+    <div class="stat"><span class="num">15+ <small>years</small></span><span class="lbl">Industry Experience</span></div>
+    <div class="stat"><span class="num">800+ <small>sq.ft.</small></span><span class="lbl">Training Floor</span></div>
+    <div class="stat"><span class="num">1-ON-1</span><span class="lbl">Dedicated Coaching</span></div>
+    <div class="stat"><span class="num">08</span><span class="lbl">Years Running</span></div>
+    <div class="stat"><span class="num">100%</span><span class="lbl">Form & Technique Focus</span></div>
   </section>
 
   <section class="on-black">
     <div class="section-head">
       <div>
-        <span class="kicker">What we coach</span>
-        <h2>Coaching built around<br>your goal, not a class.</h2>
+        <span class="kicker">What we run</span>
+        <h2>Strength &amp; conditioning programs<br>built around a goal, not a trend.</h2>
       </div>
-      <p class="desc">Every session is one-on-one with your coach — programmed, tracked and adjusted week to week, not left to a printed plan on the wall.</p>
+      <p class="desc">Every program has a coach attached to it — private strength training with attendance, load and progress tracked from week one.</p>
     </div>
     <div class="grid grid-4">
       <div class="card reveal">
         <div class="icon">01</div>
-        <h3>Strength &amp; Powerlifting Coaching</h3>
-        <p>One-on-one squat, bench and deadlift progressions, coached rep by rep — not a rack and a timer.</p>
+        <h3>Strength &amp; Powerlifting</h3>
+        <p>Squat, bench, deadlift progressions with real coaching cues, not just a rack and a timer.</p>
       </div>
       <div class="card reveal">
         <div class="icon">02</div>
-        <h3>Fat-Loss &amp; Conditioning</h3>
-        <p>Personalized metabolic sessions with kettlebells, sleds and bodyweight work, paced to your fitness level.</p>
+        <h3>H I I T Conditioning</h3>
+        <p>45-minute metabolic sessions mixing kettlebells, sleds and bodyweight circuits.</p>
       </div>
       <div class="card reveal">
         <div class="icon">03</div>
-        <h3>Boxing &amp; Pad Work</h3>
-        <p>Private footwork, combinations and pad rounds — conditioning that's coached, not just supervised.</p>
+        <h3>Boxing &amp; Bag Work</h3>
+        <p>Footwork, combinations and pad rounds — conditioning that doesn't feel like conditioning.</p>
       </div>
       <div class="card reveal">
         <div class="icon">04</div>
-        <h3>Beginner &amp; Return-to-Fitness Coaching</h3>
-        <p>New to training or coming back after a break? Sessions are built around where you are, not where a generic program assumes you should be.</p>
+        <h3>Weight Loss & Recomp</h3>
+        <p>A structured mix of cardio, weight training, and nutrition guidance to help everyday people shred fat effectively.</p>
       </div>
     </div>
     <div class="text-center mt-lg">
-      <a href="programs.html" class="btn btn-ghost">View All Coaching Programs</a>
+      <a href="programs.html" class="btn btn-ghost">View Full Schedule</a>
     </div>
   </section>
 
-  <section class="on-charcoal">
+  <section class="on-black">
     <div class="section-head">
       <div>
         <span class="kicker">Why FLEXIFIT</span>
-        <h2>Every session is coached.<br>Not just supervised.</h2>
+        <h2>Vadodara's best personal gym<br>in Gotri. No distractions.</h2>
       </div>
     </div>
-    <div class="grid grid-3">
-      <div class="card reveal">
-        <div class="icon">✓</div>
-        <h3>Form Checks, Always</h3>
-        <p>Your coach is on the floor with you for the entire session — not managing a room full of people from behind a desk.</p>
+    <div class="reason-grid">
+      <div class="reason-card reveal">
+        <h3>No Gymtimidation</h3>
+        <p>Forget the crowded floors and judging eyes. Our private space means you get 100% of the coach's attention to learn and train with zero anxiety.</p>
       </div>
-      <div class="card reveal">
-        <div class="icon">✓</div>
-        <h3>Real Equipment</h3>
-        <p>Competition plates, a dedicated platform, sleds and a full boxing rig — packed into 800+ sq. ft. built for training, not for showing off.</p>
+      <div class="reason-card reveal">
+        <h3>Premium Equipment</h3>
+        <p>SkiErgs, RowErgs, tyre flips, warrior ropes, and heavy bags in a space meant just for you. You will never have to queue for a single machine.</p>
       </div>
-      <div class="card reveal">
-        <div class="icon">✓</div>
-        <h3>Progress You Can See</h3>
-        <p>Regular check-ins and lift logs, so "getting fitter" turns into numbers on a page.</p>
+      <div class="reason-card reveal">
+        <h3>Measurable Progress</h3>
+        <p>We track your reps, load, and technique every single session, so "getting fitter" turns into real, measurable numbers on a page.</p>
       </div>
-      <div class="card reveal">
-        <div class="icon">✓</div>
-        <h3>Private, Focused Space</h3>
-        <p>No crowd, no waiting — just you, your coach and the equipment you need for that session.</p>
+      <div class="reason-card reveal">
+        <h3>Spotless Environment</h3>
+        <p>A private studio means absolute cleanliness. Every piece of equipment is wiped, racked, and maintained daily for a premium experience.</p>
       </div>
-      <div class="card reveal">
-        <div class="icon">✓</div>
-        <h3>Session Hours Built Around You</h3>
-        <p>Morning and evening slots, six days a week, so a 9-to-6 job is never an excuse.</p>
+      <div class="reason-card reveal">
+        <h3>Structured Coaching Blocks</h3>
+        <p>We operate in dedicated morning and evening blocks. This ensures our coaches are rested, sharply focused, and ready to give you 100% attention during your booked slot.</p>
       </div>
-      <div class="card reveal">
-        <div class="icon">✓</div>
-        <h3>Programs, Not Guesswork</h3>
-        <p>Every plan is written for you specifically — no copy-paste templates, no one-size-fits-all circuits.</p>
+      <div class="reason-card reveal">
+        <h3>Flexible Commitment</h3>
+        <p>We don't sell access to a room; we sell coaching. Choose from our packages with no hidden fees or commercial fluff.</p>
       </div>
     </div>
   </section>
@@ -134,31 +192,31 @@
   <section class="on-black">
     <div class="section-head">
       <div>
-        <span class="kicker">Client results</span>
-        <h2>What our clients say</h2>
+        <span class="kicker">Member results</span>
+        <h2>What the floor says</h2>
       </div>
     </div>
     <div class="grid grid-3">
       <div class="testi-card reveal">
         <div class="stars">★★★★★</div>
-        <p>"Ten months in, my deadlift has gone from 60kg to 110kg. My coach actually corrects my bar path every session instead of just counting reps."</p>
-        <div class="who">— Rohan Mehta, Training since 2024</div>
+        <p>"Ten months in, my deadlift has gone from 60kg to 110kg. The coaches actually correct your bar path instead of just counting reps."</p>
+        <div class="who">— Rohan Mehta, Member since 2024</div>
       </div>
       <div class="testi-card reveal">
         <div class="stars">★★★★★</div>
-        <p>"I started one-on-one sessions after my second baby. Having a coach who plans around my schedule instead of a fixed class time is what kept me showing up."</p>
-        <div class="who">— Priya Nair, Training since 2023</div>
+        <p>"I joined for the HIIT classes after my second baby. The 6 AM batch is full of people who show up on time, which keeps me showing up too."</p>
+        <div class="who">— Priya Nair, Member since 2023</div>
       </div>
       <div class="testi-card reveal">
         <div class="stars">★★★★★</div>
-        <p>"Switched from a crowded gym across town. Here it's just me and my coach for the full hour — no waiting, no guessing what to do next."</p>
-        <div class="who">— Karan Solanki, Training since 2022</div>
+        <p>"Switched from a chain gym across town. The difference is the coaching — someone is always watching form during peak hours here."</p>
+        <div class="who">— Karan Solanki, Member since 2022</div>
       </div>
     </div>
   </section>
 
   <section class="cta-band">
-    <span class="kicker" style="color:#000; opacity:.7;">Only a few 1:1 slots open each week</span>
+    <span class="kicker" style="color:#000; opacity:.7;">Limited slots per batch</span>
     <h2>Your first session is on us. Bring shoes, we'll handle the rest.</h2>
     <div class="hero-actions" style="justify-content:center;">
       <a href="membership.html" class="btn btn-solid">Book Free Session</a>
@@ -172,11 +230,17 @@
   <div class="foot-grid">
     <div>
       <div class="foot-brand">FLEX<span>IFIT</span></div>
-      <p class="foot-desc">A private personal training studio in Gotri, Vadodara. One-on-one coaching, real equipment, zero crowd.</p>
+      <p class="foot-desc">A private fitness studio near you in Gotri, Vadodara. Personal training, real coaching, no nonsense.</p>
       <div class="social-row">
-        <a href="#" aria-label="Instagram">IG</a>
+        <a href="https://www.instagram.com/flexifit_6/" aria-label="Instagram" target="_blank" rel="noopener noreferrer">
+          <svg viewBox="0 0 24 24" width="18" height="18" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+            <rect x="2.5" y="2.5" width="19" height="19" rx="5" stroke="currentColor" stroke-width="1.6"/>
+            <circle cx="12" cy="12" r="4.6" stroke="currentColor" stroke-width="1.6"/>
+            <circle cx="17.6" cy="6.4" r="1.15" fill="currentColor"/>
+          </svg>
+        </a>
         <a href="#" aria-label="Facebook">FB</a>
-        <a href="#" aria-label="YouTube">YT</a>
+      
       </div>
     </div>
     <div>
@@ -191,7 +255,7 @@
     <div>
       <h4>Membership</h4>
       <ul>
-        <li><a href="membership.html">Coaching Plans</a></li>
+        <li><a href="membership.html">Pricing Plans</a></li>
         <li><a href="membership.html">Free First Session</a></li>
         <li><a href="contact.html">Corporate Plans</a></li>
         <li><a href="contact.html">FAQs</a></li>
@@ -200,20 +264,28 @@
     <div>
       <h4>Visit Us</h4>
       <ul>
-        <li><p>FF-21, 22, 23, Kasper Square Complex, Narayan Garden Road, Laxmipura Lake, Gotri, Vadodara, Gujarat</p></li>
+        <li> <p> FF-21, 22, 23, Kasper Square Complex, Narayan Garden Road, Laxmipura Lake, Gotri, Vadodara, Gujarat</p></li>
         <li><a href="tel:+919727889123">+91 97278 89123</a></li>
-        <li><a href="tel:+919106228513">+91 91062 28513/a></li>
-        <li><a href="mailto:hello@flexifitgym.in">hello@flexifitgym.in</a></li>
-        <li><p>Mon–Sat 6:00 AM–12:00 PM &amp; 4:30 PM–9:00 PM · Sunday Closed</p></li>
+        <li><a href="mailto:flexifitfitnessstudio@gmail.com">flexifitfitnessstudio@gmail.com</a></li>
+        <li><p>Mon–Sat · 6:00 AM – 12:00 PM and 4:30 PM - 9:00 PM<br> Sun · Closed</p></li>
       </ul>
     </div>
   </div>
   <div class="foot-bottom">
     <span>© <span data-year></span> FLEXIFIT Fitness Studio. All rights reserved.</span>
-    <span>Gotri, Vadodara, Gujarat, India</span>
+    <div class="footer-legal">
+        <a href="privacy.html" class="footer-copy">Privacy Policy</a>·
+        <a href="terms.html"   class="footer-copy">Terms of Service</a>
+      </div>
   </div>
 </footer>
 
-<script src="js/main.js"></script>
+<script src="js/main.js" defer></script>
+<a href="https://www.instagram.com/flexifit_6/" class="ig-float" target="_blank" rel="noopener noreferrer" aria-label="Follow FLEXIFIT on Instagram">
+  <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+    <path d="M12 2c2.72 0 3.06.01 4.12.06 1.07.05 1.79.22 2.43.46.66.26 1.22.6 1.77 1.16.5.5.9 1.11 1.16 1.77.24.64.41 1.36.46 2.43.05 1.06.06 1.4.06 4.12s-.01 3.06-.06 4.12c-.05 1.07-.22 1.79-.46 2.43a4.9 4.9 0 0 1-1.16 1.77 4.9 4.9 0 0 1-1.77 1.16c-.64.24-1.36.41-2.43.46-1.06.05-1.4.06-4.12.06s-3.06-.01-4.12-.06c-1.07-.05-1.79-.22-2.43-.46a4.9 4.9 0 0 1-1.77-1.16 4.9 4.9 0 0 1-1.16-1.77c-.24-.64-.41-1.36-.46-2.43C2.01 15.06 2 14.72 2 12s.01-3.06.06-4.12c.05-1.07.22-1.79.46-2.43.26-.66.6-1.22 1.16-1.77A4.9 4.9 0 0 1 5.45 2.52c.64-.24 1.36-.41 2.43-.46C8.94 2.01 9.28 2 12 2Zm0 1.8c-2.67 0-2.99.01-4.04.06-.87.04-1.34.18-1.66.3-.42.16-.72.36-1.03.67-.31.31-.51.61-.67 1.03-.12.32-.26.79-.3 1.66C4.25 8.51 4.24 8.83 4.24 11.5v1c0 2.67.01 2.99.06 4.04.04.87.18 1.34.3 1.66.16.42.36.72.67 1.03.31.31.61.51 1.03.67.32.12.79.26 1.66.3 1.05.05 1.37.06 4.04.06s2.99-.01 4.04-.06c.87-.04 1.34-.18 1.66-.3.42-.16.72-.36 1.03-.67.31-.31.51-.61.67-1.03.12-.32.26-.79.3-1.66.05-1.05.06-1.37.06-4.04v-1c0-2.67-.01-2.99-.06-4.04-.04-.87-.18-1.34-.3-1.66a2.77 2.77 0 0 0-.67-1.03 2.77 2.77 0 0 0-1.03-.67c-.32-.12-.79-.26-1.66-.3-1.05-.05-1.37-.06-4.04-.06Z" fill="#fff"/>
+    <path d="M12 7.4a4.6 4.6 0 1 0 0 9.2 4.6 4.6 0 0 0 0-9.2Zm0 7.6a3 3 0 1 1 0-6 3 3 0 0 1 0 6ZM17.9 7.2a1.08 1.08 0 1 1-2.16 0 1.08 1.08 0 0 1 2.16 0Z" fill="#fff"/>
+  </svg>
+</a>
 </body>
 </html>
