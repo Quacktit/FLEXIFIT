@@ -5,8 +5,6 @@
    Type:     Anton (display) / Inter (body) / JetBrains Mono (data)
    ========================================================= */
 
-@import url('https://fonts.googleapis.com/css2?family=Anton&family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@500;700&display=swap');
-
 :root{
   --black:#0B0B0C;
   --charcoal:#19191B;
