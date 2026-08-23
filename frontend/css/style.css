@@ -576,7 +576,7 @@ footer{
     position: fixed !important; 
     top: 0 !important; 
     left: 0 !important; 
-    width: 100vw !important; /* Forces strict screen width */
+    width: 100vw !important; 
     height: 100vh !important;
     
     /* The Premium Frosted Black Glass Effect */
@@ -588,7 +588,7 @@ footer{
     flex-direction: column !important;
     align-items: center !important;
     justify-content: flex-start !important;
-    padding-top: 100px !important;
+    padding-top: 80px !important; /* Reduced to pull menu up */
     gap: 0 !important;
     overflow-y: auto !important;
     overscroll-behavior: none !important;
@@ -604,11 +604,11 @@ footer{
     transform: translateX(0) !important; 
   }
   
-  /* --- 3. BIGGER, CENTERED LINKS --- */
+  /* --- 3. MENU LINKS TIGHTER SPACING --- */
   .nav-links a { 
-    padding: 20px 0 !important; 
+    padding: 14px 0 !important; /* Reduced vertical spacing */
     border-bottom: 1px solid rgba(255, 255, 255, 0.05) !important; 
-    font-size: 22px !important; 
+    font-size: 20px !important; /* Slightly smaller for a cleaner look */
     font-weight: bold !important;
     text-transform: uppercase !important;
     letter-spacing: 2px !important;
@@ -617,8 +617,19 @@ footer{
     width: 100% !important;
     display: block !important;
   }
+  
   .nav-cta{ display:none; }
-  .nav-links.open ~ .nav-cta, .nav-links a.nav-cta-mobile{ display:block; margin-top:16px; text-align:center; }
+  
+  /* --- 4. FIX THE JOIN NOW BUTTON --- */
+  .nav-links a.nav-cta-mobile { 
+    display: block !important; 
+    margin: 20px auto !important; /* Adds space above the button and centers it */
+    width: 80% !important; /* Makes it look like a button rather than a line */
+    background-color: var(--yellow) !important;
+    color: var(--black) !important; /* Forces the font color to black */
+    border: none !important;
+    padding: 16px 0 !important;
+  }
 }
 
 /* ---------- misc utility ---------- */
