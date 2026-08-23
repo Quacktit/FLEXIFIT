@@ -549,11 +549,15 @@ footer{
 .foot-desc{ color:var(--chalk-dim); font-size:14px; max-width:34ch; margin-bottom:20px; }
 .social-row{ display:flex; gap:10px; }
 .social-row a{
-  width:36px; height:36px; border:1px solid var(--steel-line);
+  width:36px; height:36px; 
+  border: none; /* Removes the box */
   display:flex; align-items:center; justify-content:center;
-  font-family:var(--font-mono); font-size:12px;
+  color: var(--chalk-dim);
+  transition: color 0.2s ease;
 }
-.social-row a:hover{ border-color:var(--yellow); color:var(--yellow); }
+.social-row a:hover{ 
+  color:var(--yellow); 
+}
 .foot-bottom{
   max-width:var(--max); margin:0 auto;
   padding-top:26px; border-top:1px solid var(--steel-line);
