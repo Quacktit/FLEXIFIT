@@ -557,19 +557,49 @@ footer{
 /* ---------- mobile nav ---------- */
 @media (max-width:900px){
   .nav-toggle{ display:flex; }
-  .nav-links{
-    position:fixed; top:64px; left:0; right:0; bottom:0;
-    background:var(--black);
-    flex-direction:column;
-    align-items:stretch;
-    padding:20px var(--pad);
-    gap:0;
-    transform:translateX(100%);
-    transition:transform .25s ease;
-    z-index:99;
+ /* --- 1. LOCK BACKGROUND SCROLL --- */
+  body.nav-open { overflow: hidden !important; }
+
+  /* --- 2. FROSTED GLASS MENU OVERLAY --- */
+  .nav-links {
+    position: fixed; top: 0; left: 0; right: 0; bottom: 0;
+    
+    /* The Premium Frosted Black Glass Effect */
+    background-color: rgba(11, 11, 12, 0.95) !important;
+    backdrop-filter: blur(15px) !important;
+    -webkit-backdrop-filter: blur(15px) !important;
+    
+    /* Layout and Scroll Trap */
+    flex-direction: column !important;
+    align-items: center !important;
+    justify-content: flex-start !important;
+    padding-top: 120px !important;
+    gap: 0 !important;
+    overflow-y: auto !important;
+    overscroll-behavior: none !important; /* Stops the background from scrolling */
+    
+    /* Animation */
+    transform: translateX(100%);
+    transition: transform .25s ease;
+    z-index: 999 !important;
   }
-  .nav-links.open{ transform:translateX(0); }
-  .nav-links a{ padding:18px 0; border-bottom:1px solid var(--steel-line); font-size:15px; }
+  
+  .nav-links.open { 
+    transform: translateX(0); 
+  }
+  
+  /* --- 3. BIGGER, CENTERED LINKS --- */
+  .nav-links a { 
+    padding: 20px 0 !important; 
+    border-bottom: 1px solid var(--steel-line); 
+    font-size: 22px !important; 
+    font-weight: bold;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    text-align: center;
+    width: 100%;
+    display: block;
+  }
   .nav-cta{ display:none; }
   .nav-links.open ~ .nav-cta, .nav-links a.nav-cta-mobile{ display:block; margin-top:16px; text-align:center; }
 }
