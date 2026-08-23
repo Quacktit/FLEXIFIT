@@ -27,7 +27,10 @@
 }
 
 *, *::before, *::after{ box-sizing:border-box; }
-html{ scroll-behavior:smooth; }
+html { 
+  scroll-behavior:smooth; 
+  overflow-x: hidden; /* Fixes the black screen on mobile right side */
+}
 body{
   margin:0;
   background:var(--black);
@@ -36,6 +39,7 @@ body{
   font-size:16px;
   line-height:1.6;
   -webkit-font-smoothing:antialiased;
+  overflow-x: hidden; /* Fixes the black screen on mobile right side */
 }
 img{ max-width:100%; display:block; }
 a{ color:inherit; text-decoration:none; }
@@ -87,7 +91,7 @@ button{ font-family:inherit; cursor:pointer; }
 
 /* ---------- header / nav ---------- */
 .site-header{
-  position:sticky; top:0; z-index:100;
+  position:sticky; top:0; z-index:1000;
   background:rgba(11,11,12,0.92);
   backdrop-filter:blur(8px);
   border-bottom:1px solid var(--steel-line);
@@ -108,6 +112,8 @@ button{ font-family:inherit; cursor:pointer; }
   font-size:26px;
   letter-spacing:0.5px;
   color:var(--chalk);
+  position: relative;
+  z-index: 1001; /* Keeps logo above mobile menu */
 }
 .brand span{ color:var(--yellow); }
 .brand small{
@@ -152,6 +158,7 @@ button{ font-family:inherit; cursor:pointer; }
 }
 .nav-cta:hover{ background:transparent; color:var(--yellow); }
 
+/* The Hamburger Icon */
 .nav-toggle{
   display:none;
   flex-direction:column;
@@ -159,8 +166,10 @@ button{ font-family:inherit; cursor:pointer; }
   background:none;
   border:0;
   padding:8px;
+  z-index: 1001; /* Keeps icon above mobile menu so it can be closed */
+  position: relative;
 }
-.nav-toggle span{ width:24px; height:2px; background:var(--chalk); display:block; }
+.nav-toggle span{ width:24px; height:2px; background:var(--chalk); display:block; transition: all 0.3s ease; }
 
 /* ---------- buttons ---------- */
 .btn{
@@ -183,7 +192,7 @@ button{ font-family:inherit; cursor:pointer; }
 .btn-block{ width:100%; justify-content:center; }
 .btn[disabled]{ opacity:.55; cursor:not-allowed; transform:none !important; }
 
-/* ---------- hero (shared shell, per-page content differs) ---------- */
+/* ---------- hero ---------- */
 .hero{
   position:relative;
   padding:96px var(--pad) 80px;
@@ -220,7 +229,7 @@ button{ font-family:inherit; cursor:pointer; }
 }
 .hero-actions{ display:flex; gap:16px; flex-wrap:wrap; }
 
-/* ---------- page header (inner pages, smaller than home hero) ---------- */
+/* ---------- page header ---------- */
 .page-head{
   padding:64px var(--pad) 48px;
   border-bottom:1px solid var(--steel-line);
@@ -554,20 +563,21 @@ footer{
 @media (max-width:900px){ .foot-grid{ grid-template-columns:1fr 1fr; } }
 @media (max-width:560px){ .foot-grid{ grid-template-columns:1fr; } }
 
-/* ---------- mobile nav ---------- */
+/* ---------- mobile nav (THE FIX) ---------- */
 @media (max-width:900px){
   .nav-toggle{ display:flex; }
- /* --- 1. LOCK BACKGROUND SCROLL --- */
+  
+  /* --- 1. LOCK BACKGROUND SCROLL --- */
   body.nav-open { overflow: hidden !important; }
 
   /* --- 2. FROSTED GLASS MENU OVERLAY --- */
   .nav-links {
-    display: flex !important; /* This was missing! It forces the links to show */
+    display: flex !important; 
     position: fixed !important; 
     top: 0 !important; 
     left: 0 !important; 
-    right: 0 !important; 
-    bottom: 0 !important;
+    width: 100vw !important; /* Forces strict screen width */
+    height: 100vh !important;
     
     /* The Premium Frosted Black Glass Effect */
     background-color: rgba(11, 11, 12, 0.95) !important;
@@ -578,7 +588,7 @@ footer{
     flex-direction: column !important;
     align-items: center !important;
     justify-content: flex-start !important;
-    padding-top: 120px !important;
+    padding-top: 100px !important;
     gap: 0 !important;
     overflow-y: auto !important;
     overscroll-behavior: none !important;
@@ -597,12 +607,12 @@ footer{
   /* --- 3. BIGGER, CENTERED LINKS --- */
   .nav-links a { 
     padding: 20px 0 !important; 
-    border-bottom: 1px solid var(--steel-line) !important; 
+    border-bottom: 1px solid rgba(255, 255, 255, 0.05) !important; 
     font-size: 22px !important; 
     font-weight: bold !important;
     text-transform: uppercase !important;
     letter-spacing: 2px !important;
-    color: #F3F0E7 !important; /* Forces the text to be bright white/yellow */
+    color: #F3F0E7 !important; 
     text-align: center !important;
     width: 100% !important;
     display: block !important;
