@@ -524,6 +524,12 @@ section{ padding:80px var(--pad); }
 .form-msg.ok{ background:rgba(245,196,0,0.1); border:1px solid var(--yellow); color:var(--yellow); }
 .form-msg.err{ background:rgba(225,68,44,0.1); border:1px solid var(--red); color:var(--red); }
 
+/* Make the calendar icon visible on dark backgrounds */
+input[type="date"]::-webkit-calendar-picker-indicator {
+  filter: invert(1);
+  cursor: pointer;
+}
+
 /* ---------- info panel (contact page) ---------- */
 .info-panel{ display:flex; flex-direction:column; gap:0; }
 .info-row{ display:flex; gap:18px; padding:22px 0; border-top:1px solid var(--steel-line); }
