@@ -558,6 +558,16 @@ footer{
 .social-row a:hover{ 
   color:var(--yellow); 
 }
+.social-row a svg {
+  width: 26px; /* Increases the logo size */
+  height: 26px; 
+  transition: transform 0.2s ease; /* Adds a smooth animation */
+}
+
+/* Optional: Makes the logo pop slightly when you hover over it */
+.social-row a:hover svg {
+  transform: scale(1.1); 
+}
 .foot-bottom{
   max-width:var(--max); margin:0 auto;
   padding-top:26px; border-top:1px solid var(--steel-line);
