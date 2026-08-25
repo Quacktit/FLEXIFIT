@@ -821,3 +821,15 @@ footer{
   .offer-title { font-size: 32px; }
   .offer-timer { font-size: 24px; }
 }
+
+
+/* Force all countdown timers to be stark white */
+.timer {
+  color: #FFFFFF !important;
+}
+
+/* Fix the broken variable in the top banner */
+.promo-banner span { 
+  color: #FFFFFF !important; 
+  font-size: 15px; 
+}
