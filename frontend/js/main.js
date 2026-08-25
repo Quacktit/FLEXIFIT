@@ -88,7 +88,7 @@ document.addEventListener('DOMContentLoaded', () => {
     const days = Math.floor(distance / (1000 * 60 * 60 * 24));
     const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
     const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
-    const seconds = Math.floor((distance % (1000 * 60)) / 1000); // Fixed missing syntax here
+    const seconds = Math.floor((distance % (1000 * 60)) / 1000);
 
     // Output the result into all elements with class="timer"
     document.querySelectorAll('.timer').forEach(el => {
@@ -109,13 +109,13 @@ document.addEventListener('DOMContentLoaded', () => {
       if (popup) {
         popup.style.display = 'flex'; // Use 'block' if flex breaks your layout
         
-       // Fire the confetti
+        // Fire the confetti
         if (typeof confetti === 'function') {
           confetti({
             particleCount: 150,
             spread: 80,
             origin: { y: 0.6 },
-            zIndex: 9999 // Brings the confetti in front of the pop-up
+            zIndex: 9999 // Brings the confetti to the absolute front
           });
         }
 
@@ -131,3 +131,4 @@ document.addEventListener('DOMContentLoaded', () => {
       popup.style.display = 'none';
     });
   }
+});
