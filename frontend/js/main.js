@@ -96,26 +96,33 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   }, 1000);
 
-  // 2. Pop-up and Confetti Logic
+  // 2. Pop-up and Confetti Logic with Local Storage
   const popup = document.getElementById('promoPopup');
   const closePopupBtn = document.getElementById('closePopup');
 
-  // Show the popup and trigger confetti after 2 seconds
-  setTimeout(() => {
-    if (popup) {
-      // Assuming your CSS hides the popup initially (e.g., display: none)
-      popup.style.display = 'flex'; // Use 'block' if flex breaks your layout
-      
-      // Fire the confetti
-      if (typeof confetti === 'function') {
-        confetti({
-          particleCount: 150,
-          spread: 80,
-          origin: { y: 0.6 } // Starts slightly lower than the very top
-        });
+  // Check the browser's memory to see if the flag exists
+  const hasSeenPopup = localStorage.getItem('grandLaunchPopupSeen');
+
+  // If the flag does NOT exist, run the pop-up logic
+  if (!hasSeenPopup) {
+    setTimeout(() => {
+      if (popup) {
+        popup.style.display = 'flex'; // Use 'block' if flex breaks your layout
+        
+        // Fire the confetti
+        if (typeof confetti === 'function') {
+          confetti({
+            particleCount: 150,
+            spread: 80,
+            origin: { y: 0.6 }
+          });
+        }
+
+        // Set the flag in local storage so it doesn't show again
+        localStorage.setItem('grandLaunchPopupSeen', 'true');
       }
-    }
-  }, 2000); // 2000 milliseconds = 2 seconds
+    }, 2000); // 2 seconds delay
+  }
 
   // 3. Close Pop-up Logic
   if (closePopupBtn && popup) {
@@ -123,4 +130,3 @@ document.addEventListener('DOMContentLoaded', () => {
       popup.style.display = 'none';
     });
   }
-});
