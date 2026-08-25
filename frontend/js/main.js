@@ -71,7 +71,7 @@ document.addEventListener('DOMContentLoaded', function () {
 
 document.addEventListener('DOMContentLoaded', () => {
   // 1. Countdown Timer (Target: August 29, 2026 at 00:00 AM)
-  const countDownDate = new Date("August 29, 2026 00:00:00").getTime(); 
+  const countDownDate = new Date("September 1, 2026 00:00:00").getTime(); 
   
   const timerInterval = setInterval(() => {
     const now = new Date().getTime();
