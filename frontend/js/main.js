@@ -67,3 +67,26 @@ document.addEventListener('DOMContentLoaded', function () {
   }
 
 });
+
+
+// 1. Countdown Timer (Target: August 29, 2026 at 00:00 AM)
+  const countDownDate = new Date("August 29, 2026 00:00:00").getTime(); 
+  
+  const timerInterval = setInterval(() => {
+    const now = new Date().getTime();
+    const distance = countDownDate - now;
+    
+    // Stop the timer when it hits zero
+    if (distance < 0) {
+      clearInterval(timerInterval);
+      document.querySelectorAll('.timer').forEach(el => el.innerHTML = "OFFER EXPIRED");
+      return;
+    }
+
+    // Calculate time
+    const days = Math.floor(distance / (1000 * 60 * 60 * 24));
+    const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+    const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+    const seconds = Math.floor((distance % (1000 * 60))From your current time (August 25, 7:56 PM), you have exactly **3 days, 4 hours, and 3 minutes** remaining until August 29 at 00:00 AM. 
+
+In total hours, that is just over **76 hours**.
