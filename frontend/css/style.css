@@ -740,7 +740,7 @@ footer{
   background: var(--yellow); color: var(--black);
   text-align: center; padding: 10px var(--pad);
   font-family: var(--font-mono); font-size: 13.5px; font-weight: 700;
-  text-transform: uppercase; letter-spacing: 1px;
+  text-transform: lowercase; letter-spacing: 1px;
 }
 .promo-banner span { color: var(--white); font-size: 15px; }
 
