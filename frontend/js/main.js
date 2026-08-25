@@ -90,40 +90,32 @@ document.addEventListener('DOMContentLoaded', () => {
     const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
     const seconds = Math.floor((distance % (1000 * 60)) / 1000);
 
-    // Output the result into all elements with class="timer"
+    // Output the result in the new extended format
     document.querySelectorAll('.timer').forEach(el => {
-      el.innerHTML = `${days}d ${hours}h ${minutes}m ${seconds}s`;
+      el.innerHTML = `${days}days ${hours}hour ${minutes}min ${seconds}sec remaining`;
     });
   }, 1000);
 
-  // 2. Pop-up and Confetti Logic with Local Storage
+  // 2. Pop-up and Confetti Logic (Local Storage check removed for testing)
   const popup = document.getElementById('promoPopup');
   const closePopupBtn = document.getElementById('closePopup');
 
-  // Check the browser's memory to see if the flag exists
-  const hasSeenPopup = localStorage.getItem('grandLaunchPopupSeen');
-
-  // If the flag does NOT exist, run the pop-up logic
-  if (!hasSeenPopup) {
-    setTimeout(() => {
-      if (popup) {
-        popup.style.display = 'flex'; // Use 'block' if flex breaks your layout
-        
-        // Fire the confetti
-        if (typeof confetti === 'function') {
-          confetti({
-            particleCount: 150,
-            spread: 80,
-            origin: { y: 0.6 },
-            zIndex: 9999 // Brings the confetti to the absolute front
-          });
-        }
-
-        // Set the flag in local storage so it doesn't show again
-        localStorage.setItem('grandLaunchPopupSeen', 'true');
+  // Show the popup and trigger confetti after 2 seconds on EVERY load
+  setTimeout(() => {
+    if (popup) {
+      popup.style.display = 'flex'; 
+      
+      // Fire the confetti
+      if (typeof confetti === 'function') {
+        confetti({
+          particleCount: 150,
+          spread: 80,
+          origin: { y: 0.6 },
+          zIndex: 9999 
+        });
       }
-    }, 2000); // 2 seconds delay
-  }
+    }
+  }, 2000);
 
   // 3. Close Pop-up Logic
   if (closePopupBtn && popup) {
