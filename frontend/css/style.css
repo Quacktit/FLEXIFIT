@@ -776,3 +776,48 @@ footer{
 }
 .cookie-banner.show { transform: translateY(0); }
 .cookie-buttons { display: flex; gap: 10px; }
+
+/* Offer Announcement Banner */
+.offer-announcement {
+  background-color: #19191B; /* Matches your dark section backgrounds */
+  text-align: center;
+  padding: 40px 15px;
+  border-bottom: 2px dashed #F5C400; /* Dashed line for a 'ticket' feel */
+  margin-bottom: 40px;
+}
+
+.offer-title {
+  font-family: 'Anton', sans-serif;
+  color: #F5C400; /* FLEXIFIT Yellow */
+  font-size: 48px; /* Huge and aggressive */
+  letter-spacing: 2px;
+  margin-bottom: 10px;
+  text-transform: uppercase;
+  text-shadow: 0 0 15px rgba(245, 196, 0, 0.4); /* Glowing effect */
+}
+
+.offer-subtitle {
+  font-family: 'Inter', sans-serif;
+  color: #F3F0E7; /* Off-white */
+  font-size: 18px;
+  margin-bottom: 20px;
+}
+
+.offer-timer {
+  font-family: 'JetBrains Mono', monospace;
+  color: #fff;
+  font-size: 32px;
+  font-weight: bold;
+  background: #0B0B0C;
+  display: inline-block;
+  padding: 10px 25px;
+  border: 1px solid #333;
+  border-radius: 4px;
+  box-shadow: inset 0 0 10px rgba(0,0,0,0.8); /* Makes the timer look inset */
+}
+
+/* Mobile responsiveness */
+@media (max-width: 768px) {
+  .offer-title { font-size: 32px; }
+  .offer-timer { font-size: 24px; }
+}
