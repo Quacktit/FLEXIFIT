@@ -789,13 +789,11 @@ footer{
 .cookie-banner.show { transform: translateY(0); }
 .cookie-buttons { display: flex; gap: 10px; }
 
-/* Offer Announcement Banner */
+/* Offer Announcement Banner (Seamless with Pricing) */
 .offer-announcement {
-  background-color: #19191B; /* Matches your dark section backgrounds */
+  background-color: var(--black); 
   text-align: center;
-  padding: 40px 15px;
-  border-bottom: 2px dashed #F5C400; /* Dashed line for a 'ticket' feel */
-  margin-bottom: 40px;
+  padding: 40px 15px 10px;
 }
 
 .offer-title {
