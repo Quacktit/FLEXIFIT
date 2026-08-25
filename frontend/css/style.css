@@ -736,11 +736,23 @@ footer{
 
 
 /* ---------- PROMO BANNER & POPUP ---------- */
+/* 1. The main banner container stays UPPERCASE */
 .promo-banner {
-  background: var(--yellow); color: var(--black);
-  text-align: center; padding: 10px var(--pad);
-  font-family: var(--font-mono); font-size: 13.5px; font-weight: 700;
-  text-transform: lowercase; letter-spacing: 1px;
+  background: var(--yellow); 
+  color: var(--black);
+  text-align: center; 
+  padding: 10px var(--pad);
+  font-family: var(--font-mono); 
+  font-size: 13.5px; 
+  font-weight: 700;
+  text-transform: uppercase; /* Keep this as uppercase */
+  letter-spacing: 1px;
+}
+
+/* 2. The span inside the banner stays white and LOWERCASE */
+.timer {
+  color: #FFFFFF !important;
+  text-transform: lowercase !important; 
 }
 .promo-banner span { color: var(--white); font-size: 15px; }
 
