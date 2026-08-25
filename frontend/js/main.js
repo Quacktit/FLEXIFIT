@@ -109,12 +109,13 @@ document.addEventListener('DOMContentLoaded', () => {
       if (popup) {
         popup.style.display = 'flex'; // Use 'block' if flex breaks your layout
         
-        // Fire the confetti
+       // Fire the confetti
         if (typeof confetti === 'function') {
           confetti({
             particleCount: 150,
             spread: 80,
-            origin: { y: 0.6 }
+            origin: { y: 0.6 },
+            zIndex: 9999 // Brings the confetti in front of the pop-up
           });
         }
 
